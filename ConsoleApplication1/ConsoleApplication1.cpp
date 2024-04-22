@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class StudentDecorator { // Шаблон декоратора для студента
+class StudentDecorator { 
 public:
     virtual string getDescription() const = 0;
     virtual ~StudentDecorator() {}
@@ -31,7 +31,7 @@ public:
     void setDecorator(StudentDecorator* newDecorator) {
         if (decorator) {
             delete decorator;
-            decorator = nullptr; // Обнуляем после удаления
+            decorator = nullptr; 
         }
         decorator = newDecorator;
     }
@@ -45,7 +45,7 @@ public:
 };
 
 
-class FreshmanDecorator : public StudentDecorator { // Декоратор для первокурсника
+class FreshmanDecorator : public StudentDecorator { 
 private:
     const Student& student;
 
@@ -57,7 +57,7 @@ public:
     }
 };
 
-class SophomoreDecorator : public StudentDecorator { // Декоратор для второкурсника
+class SophomoreDecorator : public StudentDecorator { 
 private:
     const Student& student;
 
@@ -69,7 +69,7 @@ public:
     }
 };
 
-class BinaryTree { // Бинарное дерево для хранения студентов
+class BinaryTree { 
 private:
     struct Node {
         Student data;
@@ -208,7 +208,6 @@ int main() {
     setlocale(LC_ALL, "Russian");
     BinaryTree studentTree;
 
-    // Добавляем изначальный список студентов
     studentTree.addStudent(Student("Ivanov", "Ivan", "TMsp-100", 1234));
     studentTree.addStudent(Student("Petrov", "Egor", "TRsp-322", 4321));
     studentTree.addStudent(Student("Sidorov", "Sidor", "TMsp-100", 9876));
